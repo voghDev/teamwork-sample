@@ -26,7 +26,7 @@ class GetProjectsApiDataSource(val apiToken: String) : GetProjects, ApiRequest {
 
         val service: TeamworkService = retrofit.create(TeamworkService::class.java)
 
-        val call = service.getProjects(apiToken, "application/json")
+        val call = service.getProjects()
 
         call.enqueue(object : Callback<GetProjectsApiResponse> {
             override fun onResponse(call: Call<GetProjectsApiResponse>, rsp: Response<GetProjectsApiResponse>) {
