@@ -1,5 +1,7 @@
 package es.voghdev.teamworksample.features.projects.api
 
+import es.voghdev.teamworksample.features.projects.GetProjects
+import es.voghdev.teamworksample.features.projects.api.model.GetProjectsApiResponse
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback

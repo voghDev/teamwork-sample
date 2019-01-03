@@ -1,4 +1,4 @@
-package es.voghdev.teamworksample.features.projects.api
+package es.voghdev.teamworksample.features.projects.api.model
 
 import es.voghdev.teamworksample.features.projects.api.model.ProjectApiEntry
 

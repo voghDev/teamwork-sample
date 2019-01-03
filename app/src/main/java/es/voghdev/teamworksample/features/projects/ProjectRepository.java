@@ -2,8 +2,6 @@ package es.voghdev.teamworksample.features.projects;
 
 import java.util.List;
 
-import es.voghdev.teamworksample.features.projects.api.GetProjects;
-
 public class ProjectRepository {
     GetProjects getProjectsApiDataSource;
 
