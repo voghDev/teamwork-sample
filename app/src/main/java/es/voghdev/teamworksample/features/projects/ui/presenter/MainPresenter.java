@@ -5,9 +5,9 @@ import android.util.Log;
 import java.util.List;
 
 import es.voghdev.teamworksample.common.Presenter;
+import es.voghdev.teamworksample.features.projects.GetProjects;
 import es.voghdev.teamworksample.features.projects.Project;
 import es.voghdev.teamworksample.features.projects.ProjectRepository;
-import es.voghdev.teamworksample.features.projects.GetProjects;
 
 public class MainPresenter extends Presenter<MainPresenter.MVPView, MainPresenter.Navigator> {
 
@@ -22,12 +22,11 @@ public class MainPresenter extends Presenter<MainPresenter.MVPView, MainPresente
         projectRepository.getProjects(new GetProjects.Listener() {
             @Override
             public void onSuccess(List<Project> projects) {
-                Log.d("ok", "ok");
+
             }
 
             @Override
             public void onFailure(Throwable t) {
-                Log.d("fail", "fail");
 
             }
         });
