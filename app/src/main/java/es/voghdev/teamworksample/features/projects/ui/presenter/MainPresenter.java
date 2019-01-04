@@ -1,7 +1,5 @@
 package es.voghdev.teamworksample.features.projects.ui.presenter;
 
-import android.util.Log;
-
 import java.util.List;
 
 import es.voghdev.teamworksample.common.Presenter;
@@ -19,10 +17,16 @@ public class MainPresenter extends Presenter<MainPresenter.MVPView, MainPresente
 
     @Override
     public void initialize() {
+        view.configureProjectsGrid();
+
         projectRepository.getProjects(new GetProjects.Listener() {
             @Override
             public void onSuccess(List<Project> projects) {
+                view.clearList();
 
+                for (Project project : projects) {
+                    view.addProject(project);
+                }
             }
 
             @Override
@@ -47,11 +51,19 @@ public class MainPresenter extends Presenter<MainPresenter.MVPView, MainPresente
 
     }
 
-    public interface MVPView {
+    public void onProjectClicked(Project project) {
+        navigator.openProjectDetailScreen(project);
+    }
 
+    public interface MVPView {
+        void clearList();
+
+        void addProject(Project project);
+
+        void configureProjectsGrid();
     }
 
     public interface Navigator {
-
+        void openProjectDetailScreen(Project project);
     }
 }

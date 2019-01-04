@@ -5,7 +5,7 @@ import es.voghdev.teamworksample.features.projects.Project
 
 class GetProjectsMockDataSource : GetProjects {
     override fun getProjects(listener: GetProjects.Listener?) {
-        val projectNames = listOf(
+        val names = listOf(
                 "Wildlife in amazonia",
                 "Stem cell R&D",
                 "Canada Manufacturers",
@@ -15,8 +15,18 @@ class GetProjectsMockDataSource : GetProjects {
                 "Moon & Mars"
         )
 
-        listener?.onSuccess(projectNames.mapIndexed { i, name ->
-            Project(id = "00${i + 1}", name = name, status = "active")
+        val descriptions = listOf(
+                "The Amazon River Dolphin looks remarkably different from its more familiar, ocean-faring cousin. Capybara.",
+                "an undifferentiated cell of a multicellular organism which is capable of giving rise to indefinitely more cells of the same type",
+                "Canada's main manufacturing industries range from paper, aerospace, automobile, machinery, food to clothing",
+                "26 mm silver tone stainless steel case with a diamond-studded bezel",
+                "Marine biology is the scientific study of marine life, organisms in the sea. Given that in biology many phyla, families and genera",
+                "Ice and the Sky is a 2015 French documentary film directed by Luc Jacquet about the work of Claude Lorius",
+                "You'll have no trouble seeing the red planet Mars with the eye alone. But Mars' two dinky moons – Phobos and Deimos"
+        )
+
+        listener?.onSuccess(names.mapIndexed { i, name ->
+            Project(id = "00${i + 1}", name = name, description = descriptions[i], status = "active")
         })
     }
 }

@@ -25,11 +25,11 @@ android {
 
     productFlavors {
         prod {
-            Properties properties = new Properties();
+            Properties properties = new Properties()
             properties.load(project.rootProject.file('teamwork-api.properties').newDataInputStream())
             def apiToken = properties.get("apiToken", null)
             if (apiToken == null)
-                throw new GradleException("Can't find apiToken in teamwork-api.properties. Please set it to your TeamWork Api Token");
+                throw new GradleException("Can't find apiToken in teamwork-api.properties. Please set it to your TeamWork Api Token")
 
             buildConfigField("String", "TeamWorkApiToken", "\"${apiToken}\"")
 
@@ -49,6 +49,7 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+    implementation 'com.github.pedrovgs:renderers:3.4.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

@@ -1,8 +1,8 @@
 package es.voghdev.teamworksample.common;
 
 public abstract class Presenter<T1, T2> {
-    T1 view;
-    T2 navigator;
+    protected T1 view;
+    protected T2 navigator;
 
     public void initialize() { /* Empty */ }
 
