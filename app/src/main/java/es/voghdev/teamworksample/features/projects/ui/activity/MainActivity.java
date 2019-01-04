@@ -16,6 +16,7 @@ import es.voghdev.teamworksample.features.projects.Project;
 import es.voghdev.teamworksample.features.projects.ProjectRepository;
 import es.voghdev.teamworksample.features.projects.ui.presenter.MainPresenter;
 import es.voghdev.teamworksample.features.projects.ui.renderer.ProjectRenderer;
+import es.voghdev.teamworksample.features.projects.ui.renderer.ProjectRow;
 
 public class MainActivity extends BaseActivity implements MainPresenter.MVPView, MainPresenter.Navigator, ProjectRenderer.OnRowClicked {
 
@@ -23,7 +24,7 @@ public class MainActivity extends BaseActivity implements MainPresenter.MVPView,
 
     ProjectRepository projectRepository;
 
-    RVRendererAdapter<Project> adapter;
+    RVRendererAdapter<ProjectRow> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +50,8 @@ public class MainActivity extends BaseActivity implements MainPresenter.MVPView,
     }
 
     @Override
-    public void addProject(Project project) {
-        adapter.add(project);
+    public void addProject(Project project, int index) {
+        adapter.add(new ProjectRow(project, index));
 
         adapter.notifyDataSetChanged();
     }
@@ -58,8 +59,8 @@ public class MainActivity extends BaseActivity implements MainPresenter.MVPView,
     @Override
     public void configureProjectsGrid() {
         ProjectRenderer renderer = new ProjectRenderer(this);
-        RendererBuilder<Project> rendererBuilder = new RendererBuilder<Project>()
-                .bind(Project.class, renderer);
+        RendererBuilder<ProjectRow> rendererBuilder = new RendererBuilder<ProjectRow>()
+                .bind(ProjectRow.class, renderer);
         adapter = new RVRendererAdapter<>(rendererBuilder);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);

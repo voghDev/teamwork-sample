@@ -9,13 +9,10 @@ import com.pedrogomez.renderers.Renderer
 import es.voghdev.teamworksample.R
 import es.voghdev.teamworksample.features.projects.Project
 
-class ProjectRenderer(val listener: OnRowClicked?) : Renderer<Project>() {
+class ProjectRenderer(val listener: OnRowClicked?) : Renderer<ProjectRow>() {
     var tvTitle: TextView? = null
     var tvDescription: TextView? = null
-
-    companion object {
-        var rowIndex = 0
-    }
+    var tvStatus: TextView? = null
 
     override fun inflate(inflater: LayoutInflater?, parent: ViewGroup?): View =
             inflater?.inflate(R.layout.row_project, parent, false) ?: View(context)
@@ -23,20 +20,20 @@ class ProjectRenderer(val listener: OnRowClicked?) : Renderer<Project>() {
     override fun setUpView(rootView: View?) {
         tvTitle = rootView?.findViewById(R.id.tvTitle)
         tvDescription = rootView?.findViewById(R.id.tvDescription)
-
-        rowIndex = if (rowIndex + 1 == 4) 0 else rowIndex + 1
+        tvStatus = rootView?.findViewById(R.id.tvStatus)
     }
 
     override fun hookListeners(rootView: View?) {
         rootView?.setOnClickListener {
-            listener?.onProjectClicked(content)
+            listener?.onProjectClicked(content.project)
         }
     }
 
     override fun render() {
-        renderTitle(content)
-        renderDescription(content)
-        renderBackground(rowIndex)
+        renderTitle(content.project)
+        renderDescription(content.project)
+        renderBackground(content.rowIndex)
+        renderStatus(content.project)
     }
 
     private fun renderTitle(project: Project) {
@@ -48,7 +45,7 @@ class ProjectRenderer(val listener: OnRowClicked?) : Renderer<Project>() {
     }
 
     private fun renderBackground(rowIndex: Int) {
-        val colorResId = when (rowIndex) {
+        val colorResId = when (rowIndex % 4) {
             0 -> R.color.teamwork_blue_darker
             1 -> R.color.teamwork_green
             2 -> R.color.teamwork_pink
@@ -56,6 +53,10 @@ class ProjectRenderer(val listener: OnRowClicked?) : Renderer<Project>() {
         }
 
         rootView.setBackgroundColor(ContextCompat.getColor(context, colorResId))
+    }
+
+    private fun renderStatus(project: Project) {
+        tvStatus?.text = project.status.capitalize()
     }
 
     interface OnRowClicked {

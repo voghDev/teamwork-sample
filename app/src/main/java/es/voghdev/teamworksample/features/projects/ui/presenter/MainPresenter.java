@@ -22,10 +22,12 @@ public class MainPresenter extends Presenter<MainPresenter.MVPView, MainPresente
         projectRepository.getProjects(new GetProjects.Listener() {
             @Override
             public void onSuccess(List<Project> projects) {
+                int index = 0;
+
                 view.clearList();
 
                 for (Project project : projects) {
-                    view.addProject(project);
+                    view.addProject(project, index++);
                 }
             }
 
@@ -58,7 +60,7 @@ public class MainPresenter extends Presenter<MainPresenter.MVPView, MainPresente
     public interface MVPView {
         void clearList();
 
-        void addProject(Project project);
+        void addProject(Project project, int index);
 
         void configureProjectsGrid();
     }
