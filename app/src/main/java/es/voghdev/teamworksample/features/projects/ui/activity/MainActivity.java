@@ -1,5 +1,6 @@
 package es.voghdev.teamworksample.features.projects.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -93,6 +94,8 @@ public class MainActivity extends BaseActivity implements MainPresenter.MVPView,
 
     @Override
     public void openProjectDetailScreen(Project project) {
-
+        Intent intent = new Intent(this, ProjectDetailActivity.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 }
