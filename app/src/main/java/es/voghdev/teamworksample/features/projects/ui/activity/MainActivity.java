@@ -3,12 +3,14 @@ package es.voghdev.teamworksample.features.projects.ui.activity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import com.pedrogomez.renderers.RVRendererAdapter;
 import com.pedrogomez.renderers.RendererBuilder;
 
 import org.jetbrains.annotations.NotNull;
 
+import butterknife.BindView;
 import es.voghdev.teamworksample.R;
 import es.voghdev.teamworksample.common.DIModule;
 import es.voghdev.teamworksample.common.ui.BaseActivity;
@@ -18,7 +20,13 @@ import es.voghdev.teamworksample.features.projects.ui.presenter.MainPresenter;
 import es.voghdev.teamworksample.features.projects.ui.renderer.ProjectRenderer;
 import es.voghdev.teamworksample.features.projects.ui.renderer.ProjectRow;
 
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
+
 public class MainActivity extends BaseActivity implements MainPresenter.MVPView, MainPresenter.Navigator, ProjectRenderer.OnRowClicked {
+
+    @BindView(R.id.tvEmptyCase)
+    TextView tvEmptyCase;
 
     MainPresenter presenter;
 
@@ -71,6 +79,16 @@ public class MainActivity extends BaseActivity implements MainPresenter.MVPView,
     @Override
     public void onProjectClicked(@NotNull Project project) {
         presenter.onProjectClicked(project);
+    }
+
+    @Override
+    public void showEmptyCase() {
+        tvEmptyCase.setVisibility(VISIBLE);
+    }
+
+    @Override
+    public void hideEmptyCase() {
+        tvEmptyCase.setVisibility(INVISIBLE);
     }
 
     @Override

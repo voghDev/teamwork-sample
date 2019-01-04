@@ -31,10 +31,10 @@ class GetProjectsApiDataSource(val apiToken: String) : GetProjects, ApiRequest {
         call.enqueue(object : Callback<GetProjectsApiResponse> {
             override fun onResponse(call: Call<GetProjectsApiResponse>, rsp: Response<GetProjectsApiResponse>) {
                 when {
-                    rsp?.body()?.STATUS.equals("OK") ->
-                        listener.onSuccess(rsp?.body()?.projects?.map { it.toDomain() }
+                    rsp.body()?.STATUS.equals("OK") ->
+                        listener.onSuccess(rsp.body()?.projects?.map { it.toDomain() }
                                 ?: emptyList())
-                    rsp?.errorBody() != null ->
+                    rsp.errorBody() != null ->
                         listener.onFailure(Exception(rsp.errorBody()?.string()))
                     else ->
                         listener.onFailure(Exception("Unknown error retrieving projects"))

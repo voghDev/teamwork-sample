@@ -29,6 +29,9 @@ public class MainPresenter extends Presenter<MainPresenter.MVPView, MainPresente
                 for (Project project : projects) {
                     view.addProject(project, index++);
                 }
+
+                if (projects.isEmpty())
+                    view.showEmptyCase();
             }
 
             @Override
@@ -63,6 +66,10 @@ public class MainPresenter extends Presenter<MainPresenter.MVPView, MainPresente
         void addProject(Project project, int index);
 
         void configureProjectsGrid();
+
+        void showEmptyCase();
+
+        void hideEmptyCase();
     }
 
     public interface Navigator {
