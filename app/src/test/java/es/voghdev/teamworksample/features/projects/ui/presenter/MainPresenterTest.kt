@@ -12,6 +12,8 @@ import es.voghdev.teamworksample.features.projects.ProjectRepository
 import io.kotlintest.specs.StringSpec
 
 class MainPresenterTest : StringSpec({
+    val emptyInitialData = object : Presenter.InitialData {}
+
     val mockProjectRepository: ProjectRepository = mock()
 
     val mockView: MainPresenter.MVPView = mock()
@@ -26,7 +28,7 @@ class MainPresenterTest : StringSpec({
     "should show the empty case if projects list is empty" {
         givenTheApiReturnsNoProjects(mockProjectRepository)
 
-        presenter.initialize(object : Presenter.InitialData {})
+        presenter.initialize(emptyInitialData)
 
         verify(mockView).showEmptyCase()
     }
