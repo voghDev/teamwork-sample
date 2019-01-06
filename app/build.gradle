@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'checkstyle'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -37,6 +39,17 @@ android {
         }
     }
 }
+
+task checkstyle(type: Checkstyle) {
+    configFile = rootProject.file('config/checkstyle.xml')
+
+    source 'src'
+    include '**/*.java'
+    exclude '**/gen/**'
+
+    classpath = files()
+}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
