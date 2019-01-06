@@ -26,7 +26,8 @@ import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static es.voghdev.teamworksample.features.projects.ui.activity.ProjectDetailActivity.EXTRA_PROJECT_ID;
 
-public class MainActivity extends BaseActivity implements MainPresenter.MVPView, MainPresenter.Navigator, ProjectRenderer.OnRowClicked {
+public class MainActivity extends BaseActivity implements
+        MainPresenter.MVPView, MainPresenter.Navigator, ProjectRenderer.OnRowClicked {
 
     @BindView(R.id.tvEmptyCase)
     TextView tvEmptyCase;

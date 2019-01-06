@@ -8,7 +8,8 @@ import es.voghdev.teamworksample.common.ui.BaseActivity;
 import es.voghdev.teamworksample.features.projects.ProjectRepository;
 import es.voghdev.teamworksample.features.projects.ui.presenter.ProjectDetailPresenter;
 
-public class ProjectDetailActivity extends BaseActivity implements ProjectDetailPresenter.MVPView, ProjectDetailPresenter.Navigator {
+public class ProjectDetailActivity extends BaseActivity implements
+        ProjectDetailPresenter.MVPView, ProjectDetailPresenter.Navigator {
 
     public static final String EXTRA_PROJECT_ID = "projectId";
 
@@ -29,8 +30,8 @@ public class ProjectDetailActivity extends BaseActivity implements ProjectDetail
         presenter.initialize(new ProjectDetailPresenter.ProjectDetailInitialData() {
             @Override
             public boolean containsProjectId() {
-                return getIntent().getStringExtra(EXTRA_PROJECT_ID) != null &&
-                        getIntent().getStringExtra(EXTRA_PROJECT_ID).length() > 0;
+                return getIntent().getStringExtra(EXTRA_PROJECT_ID) != null
+                        && getIntent().getStringExtra(EXTRA_PROJECT_ID).length() > 0;
             }
 
             @Override

@@ -8,8 +8,9 @@ public class DIModule {
     static ProjectRepository projectRepository;
 
     public static ProjectRepository getProjectRepository() {
-        if (null == projectRepository)
+        if (null == projectRepository) {
             projectRepository = new ProjectRepository(new GetProjectsApiDataSource(BuildConfig.TeamWorkApiToken));
+        }
 
         return projectRepository;
     }

@@ -30,8 +30,9 @@ public class MainPresenter extends Presenter<MainPresenter.MVPView, MainPresente
                     view.addProject(project, index++);
                 }
 
-                if (projects.isEmpty())
+                if (projects.isEmpty()) {
                     view.showEmptyCase();
+                }
             }
 
             @Override

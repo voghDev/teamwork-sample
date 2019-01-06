@@ -5,7 +5,8 @@ import es.voghdev.teamworksample.features.projects.GetProjectById;
 import es.voghdev.teamworksample.features.projects.Project;
 import es.voghdev.teamworksample.features.projects.ProjectRepository;
 
-public class ProjectDetailPresenter extends Presenter<ProjectDetailPresenter.MVPView, ProjectDetailPresenter.Navigator> {
+public class ProjectDetailPresenter extends
+        Presenter<ProjectDetailPresenter.MVPView, ProjectDetailPresenter.Navigator> {
 
     ProjectRepository projectRepository;
 
@@ -16,7 +17,6 @@ public class ProjectDetailPresenter extends Presenter<ProjectDetailPresenter.MVP
     public void initialize(ProjectDetailInitialData data) {
         if (data.containsProjectId()) {
             projectRepository.getProjectById(data.getProjectId(), new GetProjectById.Listener() {
-
                 @Override
                 public void onSuccess(Project project) {
 
