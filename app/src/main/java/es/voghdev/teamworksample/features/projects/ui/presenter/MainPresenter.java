@@ -16,7 +16,7 @@ public class MainPresenter extends Presenter<MainPresenter.MVPView, MainPresente
     }
 
     @Override
-    public void initialize() {
+    public void initialize(InitialData data) {
         view.configureProjectsGrid();
 
         projectRepository.getProjects(new GetProjects.Listener() {

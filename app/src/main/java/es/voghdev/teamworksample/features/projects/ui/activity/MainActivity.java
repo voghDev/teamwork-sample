@@ -14,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import butterknife.BindView;
 import es.voghdev.teamworksample.R;
 import es.voghdev.teamworksample.common.DIModule;
+import es.voghdev.teamworksample.common.NullInitialData;
 import es.voghdev.teamworksample.common.ui.BaseActivity;
 import es.voghdev.teamworksample.features.projects.Project;
 import es.voghdev.teamworksample.features.projects.ProjectRepository;
@@ -23,6 +24,7 @@ import es.voghdev.teamworksample.features.projects.ui.renderer.ProjectRow;
 
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
+import static es.voghdev.teamworksample.features.projects.ui.activity.ProjectDetailActivity.EXTRA_PROJECT_ID;
 
 public class MainActivity extends BaseActivity implements MainPresenter.MVPView, MainPresenter.Navigator, ProjectRenderer.OnRowClicked {
 
@@ -45,7 +47,7 @@ public class MainActivity extends BaseActivity implements MainPresenter.MVPView,
         presenter.setView(this);
         presenter.setNavigator(this);
 
-        presenter.initialize();
+        presenter.initialize(new NullInitialData());
     }
 
     @Override
@@ -95,6 +97,7 @@ public class MainActivity extends BaseActivity implements MainPresenter.MVPView,
     @Override
     public void openProjectDetailScreen(Project project) {
         Intent intent = new Intent(this, ProjectDetailActivity.class);
+        intent.putExtra(EXTRA_PROJECT_ID, project.getId());
         startActivity(intent);
         overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }

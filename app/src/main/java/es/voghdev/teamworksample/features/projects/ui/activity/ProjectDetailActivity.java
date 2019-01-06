@@ -10,6 +10,8 @@ import es.voghdev.teamworksample.features.projects.ui.presenter.ProjectDetailPre
 
 public class ProjectDetailActivity extends BaseActivity implements ProjectDetailPresenter.MVPView, ProjectDetailPresenter.Navigator {
 
+    public static final String EXTRA_PROJECT_ID = "projectId";
+
     ProjectDetailPresenter presenter;
 
     ProjectRepository projectRepository;
@@ -24,7 +26,18 @@ public class ProjectDetailActivity extends BaseActivity implements ProjectDetail
         presenter.setView(this);
         presenter.setNavigator(this);
 
-        presenter.initialize();
+        presenter.initialize(new ProjectDetailPresenter.ProjectDetailInitialData() {
+            @Override
+            public boolean containsProjectId() {
+                return getIntent().getStringExtra(EXTRA_PROJECT_ID) != null &&
+                        getIntent().getStringExtra(EXTRA_PROJECT_ID).length() > 0;
+            }
+
+            @Override
+            public String getProjectId() {
+                return getIntent().getStringExtra(EXTRA_PROJECT_ID);
+            }
+        });
     }
 
     @Override

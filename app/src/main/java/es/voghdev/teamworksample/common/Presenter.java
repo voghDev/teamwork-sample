@@ -4,7 +4,7 @@ public abstract class Presenter<T1, T2> {
     protected T1 view;
     protected T2 navigator;
 
-    public void initialize() { /* Empty */ }
+    public void initialize(InitialData data) { /* Empty */ }
 
     public void resume() { /* Empty */ }
 
@@ -18,5 +18,9 @@ public abstract class Presenter<T1, T2> {
 
     public void setNavigator(T2 navigator) {
         this.navigator = navigator;
+    }
+
+    public interface InitialData {
+        /* Empty */
     }
 }
