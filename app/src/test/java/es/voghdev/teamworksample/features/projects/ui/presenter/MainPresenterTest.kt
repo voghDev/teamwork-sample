@@ -1,6 +1,7 @@
 package es.voghdev.teamworksample.features.projects.ui.presenter
 
 import com.nhaarman.mockito_kotlin.*
+import es.voghdev.teamworksample.common.Presenter
 import es.voghdev.teamworksample.features.projects.GetProjects
 import es.voghdev.teamworksample.features.projects.Project
 import es.voghdev.teamworksample.features.projects.ProjectRepository
@@ -21,7 +22,7 @@ class MainPresenterTest : StringSpec({
     "should show the empty case if projects list is empty" {
         givenTheApiReturnsNoProjects(mockProjectRepository)
 
-        presenter.initialize()
+        presenter.initialize(object : Presenter.InitialData {})
 
         verify(mockView).showEmptyCase()
     }
