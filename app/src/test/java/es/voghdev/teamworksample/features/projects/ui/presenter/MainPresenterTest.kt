@@ -1,6 +1,10 @@
 package es.voghdev.teamworksample.features.projects.ui.presenter
 
-import com.nhaarman.mockito_kotlin.*
+import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockito_kotlin.doAnswer
+import com.nhaarman.mockito_kotlin.verify
+import com.nhaarman.mockito_kotlin.whenever
+import com.nhaarman.mockito_kotlin.any
 import es.voghdev.teamworksample.features.projects.GetProjects
 import es.voghdev.teamworksample.features.projects.Project
 import es.voghdev.teamworksample.features.projects.ProjectRepository

@@ -15,14 +15,14 @@ class GetProjectsApiDataSource(val apiToken: String) : GetProjects, ApiRequest {
         val builder: OkHttpClient.Builder = OkHttpClient.Builder()
 
         builder.addNetworkInterceptor(AuthInterceptor(apiToken))
-                .connectTimeout(10, TimeUnit.SECONDS)
-                .readTimeout(10, TimeUnit.SECONDS)
+            .connectTimeout(10, TimeUnit.SECONDS)
+            .readTimeout(10, TimeUnit.SECONDS)
 
         val retrofit: Retrofit = Retrofit.Builder()
-                .baseUrl(getEndPoint())
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(builder.build())
-                .build()
+            .baseUrl(getEndPoint())
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(builder.build())
+            .build()
 
         val service: TeamworkService = retrofit.create(TeamworkService::class.java)
 
@@ -33,7 +33,7 @@ class GetProjectsApiDataSource(val apiToken: String) : GetProjects, ApiRequest {
                 when {
                     rsp.body()?.STATUS.equals("OK") ->
                         listener.onSuccess(rsp.body()?.projects?.map { it.toDomain() }
-                                ?: emptyList())
+                            ?: emptyList())
                     rsp.errorBody() != null ->
                         listener.onFailure(Exception(rsp.errorBody()?.string()))
                     else ->

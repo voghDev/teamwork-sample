@@ -15,7 +15,7 @@ class ProjectRenderer(val listener: OnRowClicked?) : Renderer<ProjectRow>() {
     var tvStatus: TextView? = null
 
     override fun inflate(inflater: LayoutInflater?, parent: ViewGroup?): View =
-            inflater?.inflate(R.layout.row_project, parent, false) ?: View(context)
+        inflater?.inflate(R.layout.row_project, parent, false) ?: View(context)
 
     override fun setUpView(rootView: View?) {
         tvTitle = rootView?.findViewById(R.id.tvTitle)

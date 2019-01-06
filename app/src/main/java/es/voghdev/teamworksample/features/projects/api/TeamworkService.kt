@@ -6,6 +6,5 @@ import retrofit2.http.GET
 
 interface TeamworkService {
     @GET("projects.json")
-    fun getProjects(
-    ): Call<GetProjectsApiResponse>
+    fun getProjects(): Call<GetProjectsApiResponse>
 }
