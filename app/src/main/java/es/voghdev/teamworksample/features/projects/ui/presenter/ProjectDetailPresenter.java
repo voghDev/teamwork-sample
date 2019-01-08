@@ -22,6 +22,8 @@ public class ProjectDetailPresenter extends
                 @Override
                 public void onSuccess(Project project) {
                     view.showToolbarTitle(project.getName());
+
+                    view.loadProjectLogo(project.getLogo());
                 }
 
                 @Override
@@ -62,6 +64,8 @@ public class ProjectDetailPresenter extends
         void showToolbarTitle(String name);
 
         void configureToolbarBackButton();
+
+        void loadProjectLogo(String logo);
     }
 
     public interface Navigator {

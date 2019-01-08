@@ -3,6 +3,9 @@ package es.voghdev.teamworksample.features.projects.ui.activity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import es.voghdev.teamworksample.R;
@@ -18,6 +21,9 @@ public class ProjectDetailActivity extends BaseActivity implements
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+
+    @BindView(R.id.ivProjectImage)
+    ImageView ivProjectImage;
 
     ProjectDetailPresenter presenter;
 
@@ -66,6 +72,11 @@ public class ProjectDetailActivity extends BaseActivity implements
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void loadProjectLogo(String logo) {
+        Picasso.get().load(logo).into(ivProjectImage);
     }
 
     @Override

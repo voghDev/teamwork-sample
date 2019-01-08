@@ -6,6 +6,7 @@ class ProjectApiEntry(
     val id: String?,
     val name: String?,
     val description: String?,
+    val logo: String?,
     val status: String?,
     val subStatus: String?,
     val starred: Boolean?,
@@ -15,6 +16,7 @@ class ProjectApiEntry(
         id ?: "",
         name ?: "",
         description ?: "",
+        logo ?: "",
         status ?: ""
     )
 }
