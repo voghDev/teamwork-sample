@@ -6,5 +6,6 @@ class Project(
     val description: String,
     val logo: String,
     val status: String,
-    val subStatus: String
+    val subStatus: String,
+    val isProjectAdmin: Boolean
 )

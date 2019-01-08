@@ -91,19 +91,21 @@
                 android:textStyle="italic" />
 
             <TextView
-                android:id="@+id/tvIsUserAdmin"
+                android:id="@+id/tvIsProjectAdmin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="Administrator" />
+                android:drawableLeft="@drawable/red_circle"
+                android:drawablePadding="8dp"
+                android:text="@string/administrator" />
 
             <ImageView
                 android:id="@+id/ivStarred"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvIsUserAdmin"
+                android:layout_below="@+id/tvIsProjectAdmin"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="16dp"
                 android:src="@android:drawable/btn_star_big_on" />

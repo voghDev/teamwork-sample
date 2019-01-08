@@ -27,6 +27,10 @@ public class ProjectDetailPresenter extends
 
                     view.showProjectStatus(capitalize(project.getStatus()));
                     view.showProjectSubStatus(capitalize(project.getSubStatus()));
+
+                    if (project.isProjectAdmin()) {
+                        view.showProjectAdminLabel();
+                    }
                 }
 
                 @Override
@@ -81,6 +85,8 @@ public class ProjectDetailPresenter extends
         void showProjectStatus(String status);
 
         void showProjectSubStatus(String subStatus);
+
+        void showProjectAdminLabel();
     }
 
     public interface Navigator {

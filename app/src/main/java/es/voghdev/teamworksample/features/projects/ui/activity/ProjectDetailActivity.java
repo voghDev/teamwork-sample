@@ -15,6 +15,8 @@ import es.voghdev.teamworksample.common.ui.BaseActivity;
 import es.voghdev.teamworksample.features.projects.ProjectRepository;
 import es.voghdev.teamworksample.features.projects.ui.presenter.ProjectDetailPresenter;
 
+import static android.view.View.VISIBLE;
+
 public class ProjectDetailActivity extends BaseActivity implements
         ProjectDetailPresenter.MVPView, ProjectDetailPresenter.Navigator {
 
@@ -31,6 +33,9 @@ public class ProjectDetailActivity extends BaseActivity implements
 
     @BindView(R.id.tvProjectSubStatus)
     TextView tvProjectSubStatus;
+
+    @BindView(R.id.tvIsProjectAdmin)
+    TextView tvIsProjectAdmin;
 
     ProjectDetailPresenter presenter;
 
@@ -99,6 +104,11 @@ public class ProjectDetailActivity extends BaseActivity implements
     @Override
     public void showProjectSubStatus(String subStatus) {
         tvProjectSubStatus.setText(subStatus);
+    }
+
+    @Override
+    public void showProjectAdminLabel() {
+        tvIsProjectAdmin.setVisibility(VISIBLE);
     }
 
     @Override

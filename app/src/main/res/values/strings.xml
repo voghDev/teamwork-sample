@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Teamwork Sample</string>z
+    <string name="app_name">Teamwork Sample</string>
+    <string name="administrator">Administrator</string>z
 </resources>
