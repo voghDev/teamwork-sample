@@ -17,6 +17,7 @@ class ProjectApiEntry(
         name ?: "",
         description ?: "",
         logo ?: "",
-        status ?: ""
+        status ?: "",
+        subStatus ?: ""
     )
 }

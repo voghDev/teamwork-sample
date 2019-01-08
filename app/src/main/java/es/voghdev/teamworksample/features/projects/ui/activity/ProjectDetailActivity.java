@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -24,6 +25,12 @@ public class ProjectDetailActivity extends BaseActivity implements
 
     @BindView(R.id.ivProjectImage)
     ImageView ivProjectImage;
+
+    @BindView(R.id.tvProjectStatus)
+    TextView tvStatus;
+
+    @BindView(R.id.tvProjectSubStatus)
+    TextView tvProjectSubStatus;
 
     ProjectDetailPresenter presenter;
 
@@ -82,6 +89,16 @@ public class ProjectDetailActivity extends BaseActivity implements
     @Override
     public void close() {
         finish();
+    }
+
+    @Override
+    public void showProjectStatus(String status) {
+        tvStatus.setText(status);
+    }
+
+    @Override
+    public void showProjectSubStatus(String subStatus) {
+        tvProjectSubStatus.setText(subStatus);
     }
 
     @Override

@@ -5,5 +5,6 @@ class Project(
     val name: String,
     val description: String,
     val logo: String,
-    val status: String
+    val status: String,
+    val subStatus: String
 )

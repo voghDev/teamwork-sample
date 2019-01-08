@@ -24,6 +24,9 @@ public class ProjectDetailPresenter extends
                     view.showToolbarTitle(project.getName());
 
                     view.loadProjectLogo(project.getLogo());
+
+                    view.showProjectStatus(capitalize(project.getStatus()));
+                    view.showProjectSubStatus(capitalize(project.getSubStatus()));
                 }
 
                 @Override
@@ -49,6 +52,14 @@ public class ProjectDetailPresenter extends
 
     }
 
+    private String capitalize(String text) {
+        if (text == null || text.isEmpty()) {
+            return "";
+        }
+
+        return text.substring(0, 1).toUpperCase().concat(text.substring(1));
+    }
+
     public void onBackButtonClicked() {
         navigator.close();
     }
@@ -66,6 +77,10 @@ public class ProjectDetailPresenter extends
         void configureToolbarBackButton();
 
         void loadProjectLogo(String logo);
+
+        void showProjectStatus(String status);
+
+        void showProjectSubStatus(String subStatus);
     }
 
     public interface Navigator {
