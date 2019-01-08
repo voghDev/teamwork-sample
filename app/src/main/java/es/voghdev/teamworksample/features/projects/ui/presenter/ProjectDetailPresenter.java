@@ -15,11 +15,13 @@ public class ProjectDetailPresenter extends
     }
 
     public void initialize(ProjectDetailInitialData data) {
+        view.configureToolbarBackButton();
+
         if (data.containsProjectId()) {
             projectRepository.getProjectById(data.getProjectId(), new GetProjectById.Listener() {
                 @Override
                 public void onSuccess(Project project) {
-
+                    view.showToolbarTitle(project.getName());
                 }
 
                 @Override
@@ -45,6 +47,10 @@ public class ProjectDetailPresenter extends
 
     }
 
+    public void onBackButtonClicked() {
+        navigator.close();
+    }
+
     public interface ProjectDetailInitialData extends InitialData {
         boolean containsProjectId();
 
@@ -53,9 +59,13 @@ public class ProjectDetailPresenter extends
 
     public interface MVPView {
 
+        void showToolbarTitle(String name);
+
+        void configureToolbarBackButton();
     }
 
     public interface Navigator {
 
+        void close();
     }
 }

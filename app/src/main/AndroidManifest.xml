@@ -19,7 +19,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".features.projects.ui.activity.ProjectDetailActivity" />
+        <activity
+            android:name=".features.projects.ui.activity.ProjectDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

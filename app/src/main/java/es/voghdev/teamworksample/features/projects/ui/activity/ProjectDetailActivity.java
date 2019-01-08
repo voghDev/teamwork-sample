@@ -1,7 +1,10 @@
 package es.voghdev.teamworksample.features.projects.ui.activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
+import butterknife.BindView;
 import es.voghdev.teamworksample.R;
 import es.voghdev.teamworksample.common.DIModule;
 import es.voghdev.teamworksample.common.ui.BaseActivity;
@@ -12,6 +15,9 @@ public class ProjectDetailActivity extends BaseActivity implements
         ProjectDetailPresenter.MVPView, ProjectDetailPresenter.Navigator {
 
     public static final String EXTRA_PROJECT_ID = "projectId";
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     ProjectDetailPresenter presenter;
 
@@ -39,6 +45,32 @@ public class ProjectDetailActivity extends BaseActivity implements
                 return getIntent().getStringExtra(EXTRA_PROJECT_ID);
             }
         });
+    }
+
+    @Override
+    public void showToolbarTitle(String name) {
+        getSupportActionBar().setTitle(name);
+    }
+
+    @Override
+    public void configureToolbarBackButton() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            presenter.onBackButtonClicked();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void close() {
+        finish();
     }
 
     @Override
