@@ -31,6 +31,12 @@ public class ProjectDetailPresenter extends
                     if (project.isProjectAdmin()) {
                         view.showProjectAdminLabel();
                     }
+
+                    if (project.isStarred()) {
+                        view.showFilledStar();
+                    } else {
+                        view.showEmptyStar();
+                    }
                 }
 
                 @Override
@@ -87,6 +93,10 @@ public class ProjectDetailPresenter extends
         void showProjectSubStatus(String subStatus);
 
         void showProjectAdminLabel();
+
+        void showFilledStar();
+
+        void showEmptyStar();
     }
 
     public interface Navigator {

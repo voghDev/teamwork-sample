@@ -37,6 +37,9 @@ public class ProjectDetailActivity extends BaseActivity implements
     @BindView(R.id.tvIsProjectAdmin)
     TextView tvIsProjectAdmin;
 
+    @BindView(R.id.ivStarred)
+    ImageView ivStarred;
+
     ProjectDetailPresenter presenter;
 
     ProjectRepository projectRepository;
@@ -109,6 +112,16 @@ public class ProjectDetailActivity extends BaseActivity implements
     @Override
     public void showProjectAdminLabel() {
         tvIsProjectAdmin.setVisibility(VISIBLE);
+    }
+
+    @Override
+    public void showFilledStar() {
+        ivStarred.setImageResource(R.drawable.ic_star);
+    }
+
+    @Override
+    public void showEmptyStar() {
+        ivStarred.setImageResource(R.drawable.ic_star_empty);
     }
 
     @Override

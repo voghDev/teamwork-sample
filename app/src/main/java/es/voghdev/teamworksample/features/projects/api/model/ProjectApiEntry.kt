@@ -11,7 +11,8 @@ class ProjectApiEntry(
     val subStatus: String?,
     val starred: Boolean?,
     val replyByEmailEnabled: Boolean?,
-    val isProjectAdmin: Boolean?
+    val isProjectAdmin: Boolean?,
+    val isStarred: Boolean?
 ) {
     fun toDomain() = Project(
         id ?: "",
@@ -20,6 +21,7 @@ class ProjectApiEntry(
         logo ?: "",
         status ?: "",
         subStatus ?: "",
-        isProjectAdmin ?: false
+        isProjectAdmin ?: false,
+        isStarred ?: false
     )
 }
