@@ -4,5 +4,9 @@ class Project(
     val id: String,
     val name: String,
     val description: String,
-    val status: String
+    val logo: String,
+    val status: String,
+    val subStatus: String,
+    val isProjectAdmin: Boolean,
+    val isStarred: Boolean
 )

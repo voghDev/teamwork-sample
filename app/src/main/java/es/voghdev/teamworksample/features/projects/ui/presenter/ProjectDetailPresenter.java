@@ -15,11 +15,30 @@ public class ProjectDetailPresenter extends
     }
 
     public void initialize(ProjectDetailInitialData data) {
+        view.configureToolbarBackButton();
+
         if (data.containsProjectId()) {
             projectRepository.getProjectById(data.getProjectId(), new GetProjectById.Listener() {
                 @Override
                 public void onSuccess(Project project) {
+                    view.showToolbarTitle(project.getName());
 
+                    view.loadProjectLogo(project.getLogo());
+
+                    view.showProjectStatus(capitalize(project.getStatus()));
+                    view.showProjectSubStatus(capitalize(project.getSubStatus()));
+
+                    if (project.isProjectAdmin()) {
+                        view.showProjectAdminLabel();
+                    }
+
+                    if (project.isStarred()) {
+                        view.showFilledStar();
+                    } else {
+                        view.showEmptyStar();
+                    }
+
+                    view.showProjectDescription(project.getDescription());
                 }
 
                 @Override
@@ -45,6 +64,18 @@ public class ProjectDetailPresenter extends
 
     }
 
+    private String capitalize(String text) {
+        if (text == null || text.isEmpty()) {
+            return "";
+        }
+
+        return text.substring(0, 1).toUpperCase().concat(text.substring(1));
+    }
+
+    public void onBackButtonClicked() {
+        navigator.close();
+    }
+
     public interface ProjectDetailInitialData extends InitialData {
         boolean containsProjectId();
 
@@ -53,9 +84,27 @@ public class ProjectDetailPresenter extends
 
     public interface MVPView {
 
+        void showToolbarTitle(String name);
+
+        void configureToolbarBackButton();
+
+        void loadProjectLogo(String logo);
+
+        void showProjectStatus(String status);
+
+        void showProjectSubStatus(String subStatus);
+
+        void showProjectAdminLabel();
+
+        void showFilledStar();
+
+        void showEmptyStar();
+
+        void showProjectDescription(String description);
     }
 
     public interface Navigator {
 
+        void close();
     }
 }

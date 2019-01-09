@@ -26,7 +26,16 @@ class GetProjectsMockDataSource : GetProjects {
         )
 
         listener?.onSuccess(names.mapIndexed { i, name ->
-            Project(id = "00${i + 1}", name = name, description = descriptions[i], status = "active")
+            Project(
+                id = "00${i + 1}",
+                name = name,
+                description = descriptions[i],
+                logo = "https://s3.amazonaws.com/TWFiles/349705/projectLogo/tf_2E2AD316-DAF2-C47C-BA4D4BCE9184E395.Fg204.jpg",
+                status = "active",
+                subStatus = "late",
+                isProjectAdmin = false,
+                isStarred = false
+            )
         })
     }
 }
