@@ -1,6 +1,7 @@
 package es.voghdev.teamworksample.features.projects.api.model
 
 import es.voghdev.teamworksample.features.projects.Project
+import es.voghdev.teamworksample.features.projects.ProjectCategory
 
 class ProjectApiEntry(
     val id: String?,
@@ -12,7 +13,8 @@ class ProjectApiEntry(
     val starred: Boolean?,
     val replyByEmailEnabled: Boolean?,
     val isProjectAdmin: Boolean?,
-    val isStarred: Boolean?
+    val isStarred: Boolean?,
+    val category: ProjectCategoryApiEntry?
 ) {
     fun toDomain() = Project(
         id ?: "",
@@ -22,6 +24,7 @@ class ProjectApiEntry(
         status ?: "",
         subStatus ?: "",
         isProjectAdmin ?: false,
-        isStarred ?: false
+        isStarred ?: false,
+        category?.toDomain() ?: ProjectCategory()
     )
 }

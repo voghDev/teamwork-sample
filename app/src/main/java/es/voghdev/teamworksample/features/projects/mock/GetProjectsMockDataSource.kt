@@ -2,6 +2,7 @@ package es.voghdev.teamworksample.features.projects.mock
 
 import es.voghdev.teamworksample.features.projects.GetProjects
 import es.voghdev.teamworksample.features.projects.Project
+import es.voghdev.teamworksample.features.projects.ProjectCategory
 
 class GetProjectsMockDataSource : GetProjects {
     override fun getProjects(listener: GetProjects.Listener?) {
@@ -25,6 +26,8 @@ class GetProjectsMockDataSource : GetProjects {
             "You'll have no trouble seeing the red planet Mars with the eye alone. But Mars' two dinky moons – Phobos and Deimos"
         )
 
+        val emptyCategory = ProjectCategory()
+
         listener?.onSuccess(names.mapIndexed { i, name ->
             Project(
                 id = "00${i + 1}",
@@ -34,7 +37,8 @@ class GetProjectsMockDataSource : GetProjects {
                 status = "active",
                 subStatus = "late",
                 isProjectAdmin = false,
-                isStarred = false
+                isStarred = false,
+                category = emptyCategory
             )
         })
     }
