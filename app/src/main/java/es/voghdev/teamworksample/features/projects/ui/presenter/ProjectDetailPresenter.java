@@ -39,6 +39,10 @@ public class ProjectDetailPresenter extends
                     }
 
                     view.showProjectDescription(project.getDescription());
+
+                    if (project.getCategory().hasName()) {
+                        view.showProjectCategory(capitalize(project.getCategory().getName()));
+                    }
                 }
 
                 @Override
@@ -101,6 +105,8 @@ public class ProjectDetailPresenter extends
         void showEmptyStar();
 
         void showProjectDescription(String description);
+
+        void showProjectCategory(String category);
     }
 
     public interface Navigator {
