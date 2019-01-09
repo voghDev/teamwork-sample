@@ -37,6 +37,8 @@ public class ProjectDetailPresenter extends
                     } else {
                         view.showEmptyStar();
                     }
+
+                    view.showProjectDescription(project.getDescription());
                 }
 
                 @Override
@@ -97,6 +99,8 @@ public class ProjectDetailPresenter extends
         void showFilledStar();
 
         void showEmptyStar();
+
+        void showProjectDescription(String description);
     }
 
     public interface Navigator {

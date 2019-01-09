@@ -40,6 +40,9 @@ public class ProjectDetailActivity extends BaseActivity implements
     @BindView(R.id.ivStarred)
     ImageView ivStarred;
 
+    @BindView(R.id.tvProjectDescription)
+    TextView tvDescription;
+
     ProjectDetailPresenter presenter;
 
     ProjectRepository projectRepository;
@@ -122,6 +125,11 @@ public class ProjectDetailActivity extends BaseActivity implements
     @Override
     public void showEmptyStar() {
         ivStarred.setImageResource(R.drawable.ic_star_empty);
+    }
+
+    @Override
+    public void showProjectDescription(String description) {
+        tvDescription.setText(description);
     }
 
     @Override
