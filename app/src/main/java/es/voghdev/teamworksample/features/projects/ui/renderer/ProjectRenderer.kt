@@ -1,6 +1,5 @@
 package es.voghdev.teamworksample.features.projects.ui.renderer
 
-import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,14 +44,14 @@ class ProjectRenderer(val listener: OnRowClicked?) : Renderer<ProjectRow>() {
     }
 
     private fun renderBackground(rowIndex: Int) {
-        val colorResId = when (rowIndex % 4) {
-            0 -> R.color.teamwork_blue_darker
-            1 -> R.color.teamwork_green
-            2 -> R.color.teamwork_pink
-            else -> R.color.teamwork_blue
+        val backgroundResId = when (rowIndex % 4) {
+            0 -> R.drawable.ripple_blue_darker
+            1 -> R.drawable.ripple_green
+            2 -> R.drawable.ripple_pink
+            else -> R.drawable.ripple_blue
         }
 
-        rootView.setBackgroundColor(ContextCompat.getColor(context, colorResId))
+        rootView.setBackgroundResource(backgroundResId)
     }
 
     private fun renderStatus(project: Project) {
