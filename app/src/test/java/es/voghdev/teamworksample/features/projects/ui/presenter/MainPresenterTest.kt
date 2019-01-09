@@ -24,6 +24,11 @@ class MainPresenterTest : StringSpec({
 
     val mockNavigator: MainPresenter.Navigator = mock()
 
+    val presenter = MainPresenter(mockProjectRepository).apply {
+        setView(mockView)
+        setNavigator(mockNavigator)
+    }
+
     val someProjects = (1..4).map { i ->
         Project(
             "00$i",
@@ -36,11 +41,6 @@ class MainPresenterTest : StringSpec({
             false,
             ProjectCategory()
         )
-    }
-
-    val presenter = MainPresenter(mockProjectRepository).apply {
-        setView(mockView)
-        setNavigator(mockNavigator)
     }
 
     "should configure the projects grid on start" {
@@ -80,11 +80,11 @@ class MainPresenterTest : StringSpec({
     }
 })
 
-private fun givenTheApiReturnsNoProjects(mockProjectRepository: ProjectRepository) {
+fun givenTheApiReturnsNoProjects(mockProjectRepository: ProjectRepository) {
     givenTheApiReturnsSomeProjects(mockProjectRepository, emptyList())
 }
 
-private fun givenTheApiReturnsSomeProjects(repository: ProjectRepository, projects: List<Project>) {
+fun givenTheApiReturnsSomeProjects(repository: ProjectRepository, projects: List<Project>) {
     doAnswer {
         val callback = it.arguments[0] as GetProjects.Listener
 
