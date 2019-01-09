@@ -32,7 +32,7 @@ public class ProjectDetailActivity extends BaseActivity implements
     TextView tvStatus;
 
     @BindView(R.id.tvProjectSubStatus)
-    TextView tvProjectSubStatus;
+    TextView tvSubStatus;
 
     @BindView(R.id.tvIsProjectAdmin)
     TextView tvIsProjectAdmin;
@@ -109,7 +109,7 @@ public class ProjectDetailActivity extends BaseActivity implements
 
     @Override
     public void showProjectSubStatus(String subStatus) {
-        tvProjectSubStatus.setText(subStatus);
+        tvSubStatus.setText(subStatus);
     }
 
     @Override
