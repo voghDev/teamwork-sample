@@ -24,23 +24,11 @@
 
             <ImageView
                 android:id="@+id/ivProjectImage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"
-                app:layout_collapseMode="parallax" />
+                style="@style/ProjectLogo" />
 
             <TextView
                 android:id="@+id/tvProjectCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                android:text="Project category"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                app:layout_collapseMode="parallax" />
+                style="@style/ProjectCategoryLabel" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -66,61 +54,27 @@
 
             <TextView
                 android:id="@+id/tvProjectStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textColor="@color/teamwork_green"
-                android:textSize="18sp" />
+                style="@style/ProjectDetailStatusLabel" />
 
             <TextView
                 android:id="@+id/tvProjectSubStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/tvProjectStatus"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="1dp"
                 android:layout_toEndOf="@+id/tvProjectStatus"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textColor="@color/teamwork_pink"
-                android:textSize="14sp"
-                android:textStyle="italic" />
+                style="@style/ProjectDetailSubStatusLabel" />
 
             <TextView
                 android:id="@+id/tvIsProjectAdmin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:drawableLeft="@drawable/red_circle"
-                android:drawablePadding="8dp"
-                android:text="@string/administrator" />
+                android:text="@string/administrator"
+                style="@style/IsProjectAdminLabel" />
 
             <ImageView
                 android:id="@+id/ivStarred"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_below="@+id/tvIsProjectAdmin"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/ic_star" />
+                style="@style/ProjectStarredImage" />
 
             <TextView
                 android:id="@+id/tvProjectDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_below="@+id/tvProjectStatus"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:text="This is the project description"
-                android:textStyle="italic" />
+                style="@style/ProjectDetailDescriptionLabel" />
 
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>

@@ -17,4 +17,133 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="ProjectTitleLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="ProjectDescriptionLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="ProjectStatusLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ProjectGridCell">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/ripple_blue_darker</item>
+        <item name="android:paddingBottom">16dp</item>
+    </style>
+
+    <style name="ProjectCategoryLabel">
+        <item name="layout_collapseMode">parallax</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom|end</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="ProjectLogo">
+        <item name="android:contentDescription">The main logo for the project</item>
+        <item name="layout_collapseMode">parallax</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="ProjectDetailStatusLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/teamwork_green</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="ProjectDetailSubStatusLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignBottom">@+id/tvProjectStatus</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginBottom">1dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/teamwork_pink</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="IsProjectAdminLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:drawableLeft">@drawable/red_circle</item>
+        <item name="android:drawablePadding">8dp</item>
+    </style>
+
+    <style name="ProjectStarredImage">
+        <item name="android:contentDescription">Shows if the project is starred by the user, or
+            not
+        </item>
+        <item name="android:src">@drawable/ic_star</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="ProjectDetailDescriptionLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="ProjectsEmptyCaseLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">24dp</item>
+        <item name="android:layout_marginRight">24dp</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
+    <style name="ProjectsGrid">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
 </resources>
