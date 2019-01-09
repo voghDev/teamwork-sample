@@ -54,6 +54,7 @@
 
             <TextView
                 android:id="@+id/tvProjectStatus"
+                android:fontFamily="@font/rubik_regular_family"
                 style="@style/ProjectDetailStatusLabel" />
 
             <TextView

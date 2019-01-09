@@ -37,6 +37,7 @@
         <item name="android:layout_marginEnd">16dp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">italic</item>
+        <item name="android:fontFamily">@font/rubik_regular_family</item>
     </style>
 
     <style name="ProjectStatusLabel">
@@ -46,6 +47,7 @@
         <item name="android:layout_marginTop">24dp</item>
         <item name="android:layout_marginEnd">16dp</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/rubik_regular_family</item>
     </style>
 
     <style name="ProjectGridCell">
@@ -64,6 +66,7 @@
         <item name="android:layout_marginBottom">8dp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/rubik_light_family</item>
     </style>
 
     <style name="ProjectLogo">
@@ -84,6 +87,7 @@
         <item name="android:maxLines">1</item>
         <item name="android:textColor">@color/teamwork_green</item>
         <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/rubik_regular_family</item>
     </style>
 
     <style name="ProjectDetailSubStatusLabel">
@@ -98,6 +102,7 @@
         <item name="android:textColor">@color/teamwork_pink</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">italic</item>
+        <item name="android:fontFamily">@font/rubik_regular_family</item>
     </style>
 
     <style name="IsProjectAdminLabel">
@@ -108,6 +113,7 @@
         <item name="android:layout_marginEnd">16dp</item>
         <item name="android:drawableLeft">@drawable/red_circle</item>
         <item name="android:drawablePadding">8dp</item>
+        <item name="android:fontFamily">@font/rubik_regular_family</item>
     </style>
 
     <style name="ProjectStarredImage">
@@ -129,6 +135,7 @@
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginEnd">16dp</item>
         <item name="android:textStyle">italic</item>
+        <item name="android:fontFamily">@font/rubik_regular_family</item>
     </style>
 
     <style name="ProjectsEmptyCaseLabel">
