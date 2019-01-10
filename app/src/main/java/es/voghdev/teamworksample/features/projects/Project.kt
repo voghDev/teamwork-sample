@@ -8,5 +8,6 @@ class Project(
     val status: String,
     val subStatus: String,
     val isProjectAdmin: Boolean,
-    val isStarred: Boolean
+    val isStarred: Boolean,
+    val category: ProjectCategory
 )

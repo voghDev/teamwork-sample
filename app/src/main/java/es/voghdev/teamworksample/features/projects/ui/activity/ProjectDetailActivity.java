@@ -28,6 +28,9 @@ public class ProjectDetailActivity extends BaseActivity implements
     @BindView(R.id.ivProjectImage)
     ImageView ivProjectImage;
 
+    @BindView(R.id.tvProjectCategory)
+    TextView tvCategory;
+
     @BindView(R.id.tvProjectStatus)
     TextView tvStatus;
 
@@ -130,6 +133,11 @@ public class ProjectDetailActivity extends BaseActivity implements
     @Override
     public void showProjectDescription(String description) {
         tvDescription.setText(description);
+    }
+
+    @Override
+    public void showProjectCategory(String category) {
+        tvCategory.setText(category);
     }
 
     @Override
