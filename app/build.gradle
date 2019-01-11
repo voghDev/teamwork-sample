@@ -40,6 +40,10 @@ android {
             dimension "default"
         }
     }
+    
+    lintOptions {
+        abortOnError false
+    }
 }
 
 task checkstyle(type: Checkstyle) {
