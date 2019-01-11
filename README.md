@@ -1,5 +1,7 @@
 # Teamwork Projects Sample
 
+[![Build Status](https://travis-ci.org/voghDev/teamwork-sample.svg?branch=master)](https://travis-ci.org/voghDev/teamwork-sample)
+
 Sample Android App to list user projects from Teamwork Projects API
 
 This App features a basic master-detail flow.
