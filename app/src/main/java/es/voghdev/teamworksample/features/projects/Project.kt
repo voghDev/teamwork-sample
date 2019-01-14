@@ -10,4 +10,6 @@ class Project(
     val isProjectAdmin: Boolean,
     val isStarred: Boolean,
     val category: ProjectCategory
-)
+) {
+    fun hasLogo() = logo.isNotEmpty()
+}

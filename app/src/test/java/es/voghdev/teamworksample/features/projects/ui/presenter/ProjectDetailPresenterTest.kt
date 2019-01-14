@@ -3,6 +3,7 @@ package es.voghdev.teamworksample.features.projects.ui.presenter
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.doAnswer
 import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockito_kotlin.never
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
 import es.voghdev.teamworksample.features.projects.GetProjectById
@@ -10,6 +11,7 @@ import es.voghdev.teamworksample.features.projects.Project
 import es.voghdev.teamworksample.features.projects.ProjectCategory
 import es.voghdev.teamworksample.features.projects.ProjectRepository
 import io.kotlintest.specs.StringSpec
+import org.mockito.ArgumentMatchers.anyString
 
 class ProjectDetailPresenterTest : StringSpec({
     val mockProjectRepository: ProjectRepository = mock()
@@ -28,6 +30,18 @@ class ProjectDetailPresenterTest : StringSpec({
         name = "Wildlife in amazonia",
         description = "The Amazon River Dolphin looks remarkably different from its more familiar, ocean-faring cousin. Capybara",
         logo = "http://www.example.com/logo.png",
+        status = "active",
+        subStatus = "late",
+        isProjectAdmin = true,
+        isStarred = true,
+        category = ProjectCategory("269", "mobile", "00a2ff")
+    )
+
+    val aProjectWithoutLogo = Project(
+        id = "462923",
+        name = "No logo",
+        description = "This is a project without logo",
+        logo = "",
         status = "active",
         subStatus = "late",
         isProjectAdmin = true,
@@ -77,6 +91,17 @@ class ProjectDetailPresenterTest : StringSpec({
         presenter.onBackButtonClicked()
 
         verify(mockNavigator).close()
+    }
+
+    "should not try to load any project logo if project has no logo" {
+        givenThereIsAProject(mockProjectRepository, aProjectWithoutLogo)
+
+        presenter.initialize(object : ProjectDetailPresenter.ProjectDetailInitialData {
+            override fun containsProjectId() = true
+            override fun getProjectId() = "462923"
+        })
+
+        verify(mockView, never()).loadProjectLogo(anyString())
     }
 })
 
