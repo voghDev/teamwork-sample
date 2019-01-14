@@ -23,7 +23,9 @@ public class ProjectDetailPresenter extends
                 public void onSuccess(Project project) {
                     view.showToolbarTitle(project.getName());
 
-                    view.loadProjectLogo(project.getLogo());
+                    if (project.hasLogo()) {
+                        view.loadProjectLogo(project.getLogo());
+                    }
 
                     view.showProjectStatus(capitalize(project.getStatus()));
                     view.showProjectSubStatus(capitalize(project.getSubStatus()));
